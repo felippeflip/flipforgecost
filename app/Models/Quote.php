@@ -16,10 +16,14 @@ class Quote extends Model
         'client_id',
         'uuid',
         'project_name',
+        'items_per_print',
+        'sale_type',
+        'consignment_percent',
         'image_path',
         'print_time_minutes',
         'manual_time_minutes',
         'machine_power_w',
+        'plates_data',
         'status',
         'sequential_id',
         'final_price',
@@ -29,6 +33,10 @@ class Quote extends Model
         'snap_man_hour_cost',
         'snap_profit_margin_percent',
         'snap_failure_rate_percent',
+    ];
+
+    protected $casts = [
+        'plates_data' => 'array',
     ];
 
     protected $appends = ['formatted_id'];

@@ -98,6 +98,33 @@ export default function Show({ quote }) {
                         <div className="pt-2 flex flex-col items-center">
                             <span className="text-5xl font-bold tracking-tighter">R$ {parseFloat(quote.final_price).toFixed(2)}</span>
                         </div>
+
+                        {quote.items_per_print > 1 && (
+                            <div className="flex justify-between text-[#ff3366] font-bold mt-4 pt-4 pb-2 border-t border-black/20 border-b border-black/10 text-sm">
+                                <span>VALOR POR UNIDADE ({quote.items_per_print}x)</span>
+                                <span>R$ {(parseFloat(quote.final_price) / quote.items_per_print).toFixed(2)}</span>
+                            </div>
+                        )}
+
+                        {quote.sale_type === 'consignment' && (
+                            <div className="mt-4 bg-black/10 p-4 rounded-sm text-sm">
+                                <div className="font-bold mb-2 uppercase text-center text-xs tracking-widest text-[#ff3366]">Simulador Consignação</div>
+                                <div className="flex justify-between mb-1">
+                                    <span>Você Irá Receber:</span>
+                                    <span className="font-bold">R$ {parseFloat(quote.final_price).toFixed(2)}</span>
+                                </div>
+                                <div className="flex justify-between mb-1 text-xs text-black/70">
+                                    <span>Taxa Loja ({quote.consignment_percent}%):</span>
+                                    <span className="text-red-600 font-bold">
+                                        R$ {((parseFloat(quote.final_price) / (1 - (quote.consignment_percent / 100))) - parseFloat(quote.final_price)).toFixed(2)}
+                                    </span>
+                                </div>
+                                <div className="flex justify-between font-bold border-t border-black/20 pt-2 mt-2">
+                                    <span>SUGESTÃO VENDA Lj:</span>
+                                    <span className="text-lg">R$ {(parseFloat(quote.final_price) / (1 - (quote.consignment_percent / 100))).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        )}
                         <div className="mt-8">
                             <Link href={`/quotes/${quote.id}/edit`} className="block text-center w-full bg-[#18181b] text-zinc-300 font-bold uppercase tracking-widest py-4 hover:bg-zinc-800 transition-colors border-none rounded-none border border-zinc-700 mb-2">
                                 EDITAR / MUDAR STATUS
