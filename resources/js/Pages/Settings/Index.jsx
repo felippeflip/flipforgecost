@@ -1,5 +1,5 @@
 import { Head, useForm } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Index({ settings }) {
     const { data, setData, post, processing } = useForm({
@@ -16,7 +16,7 @@ export default function Index({ settings }) {
     };
 
     return (
-        <SubNavigationLayout header="PARÂMETROS GLOBAIS">
+        <AppLayout header="PARÂMETROS GLOBAIS">
             <Head title="Parâmetros de Precificação" />
 
             <div className="max-w-4xl mx-auto border border-[#27272a] bg-[#0f0f11] p-8">
@@ -80,6 +80,6 @@ export default function Index({ settings }) {
                     </div>
                 </form>
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

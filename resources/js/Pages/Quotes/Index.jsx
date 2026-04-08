@@ -1,9 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Index({ quotes }) {
     return (
-        <SubNavigationLayout header="ARQUIVO DE ORÇAMENTOS">
+        <AppLayout header="ARQUIVO DE ORÇAMENTOS">
              <Head title="Orçamentos" />
              <div className="border border-[#27272a] bg-[#09090b] w-full mt-8">
                   <table className="w-full text-left font-mono text-sm">
@@ -42,6 +42,6 @@ export default function Index({ quotes }) {
                       </tbody>
                   </table>
              </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

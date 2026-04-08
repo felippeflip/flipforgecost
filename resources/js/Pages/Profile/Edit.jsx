@@ -1,4 +1,4 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AppLayout from '@/Layouts/AppLayout';
 import { Head } from '@inertiajs/react';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
@@ -6,34 +6,43 @@ import UpdateProfileInformationForm from './Partials/UpdateProfileInformationFor
 
 export default function Edit({ mustVerifyEmail, status }) {
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Profile
-                </h2>
-            }
+        <AppLayout
+            header="CONFIGURAÇÕES DE PERFIL // 01"
         >
             <Head title="Profile" />
 
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 dark:bg-gray-800">
+            <div className="space-y-8">
+                <div className="border border-[#27272a] bg-[#09090b]">
+                    <div className="p-4 border-b border-[#27272a] bg-[#0f0f11]">
+                        <h2 className="text-sm font-mono tracking-widest text-[#CCFF00] uppercase">Informações da Conta</h2>
+                    </div>
+                    <div className="p-8">
                         <UpdateProfileInformationForm
                             mustVerifyEmail={mustVerifyEmail}
                             status={status}
                             className="max-w-xl"
                         />
                     </div>
+                </div>
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 dark:bg-gray-800">
+                <div className="border border-[#27272a] bg-[#09090b]">
+                    <div className="p-4 border-b border-[#27272a] bg-[#0f0f11]">
+                        <h2 className="text-sm font-mono tracking-widest text-[#CCFF00] uppercase">Segurança da Senha</h2>
+                    </div>
+                    <div className="p-8">
                         <UpdatePasswordForm className="max-w-xl" />
                     </div>
+                </div>
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8 dark:bg-gray-800">
+                <div className="border border-red-500/20 bg-[#09090b]">
+                    <div className="p-4 border-b border-red-500/20 bg-red-500/5">
+                        <h2 className="text-sm font-mono tracking-widest text-red-500 uppercase">Zona de Perigo</h2>
+                    </div>
+                    <div className="p-8">
                         <DeleteUserForm className="max-w-xl" />
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </AppLayout>
     );
 }

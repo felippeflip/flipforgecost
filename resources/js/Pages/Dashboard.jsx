@@ -1,5 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Dashboard({ stats, recent_quotes, top_clients }) {
     
@@ -21,7 +21,7 @@ export default function Dashboard({ stats, recent_quotes, top_clients }) {
     };
 
     return (
-        <SubNavigationLayout header="CENTRAL DE COMANDO">
+        <AppLayout header="CENTRAL DE COMANDO">
             <Head title="Dashboard" />
 
             <div className="space-y-8">
@@ -112,6 +112,6 @@ export default function Dashboard({ stats, recent_quotes, top_clients }) {
                     </div>
                 </div>
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

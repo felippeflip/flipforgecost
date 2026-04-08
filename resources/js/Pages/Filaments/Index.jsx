@@ -1,5 +1,5 @@
 import { Head, useForm, router } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Index({ filaments }) {
     const { data, setData, post, processing, reset, errors, transform } = useForm({
@@ -32,7 +32,7 @@ export default function Index({ filaments }) {
     };
 
     return (
-        <SubNavigationLayout header="ESTOQUE DE FILAMENTOS">
+        <AppLayout header="ESTOQUE DE FILAMENTOS">
             <Head title="Filamentos" />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -151,6 +151,6 @@ export default function Index({ filaments }) {
                 </div>
 
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

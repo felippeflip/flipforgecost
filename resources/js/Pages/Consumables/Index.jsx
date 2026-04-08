@@ -1,5 +1,5 @@
 import { Head, useForm, router } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Index({ consumables }) {
     const { data, setData, post, processing, reset, errors, transform } = useForm({
@@ -29,7 +29,7 @@ export default function Index({ consumables }) {
     };
 
     return (
-        <SubNavigationLayout header="ESTOQUE DE INSUMOS MISTOS">
+        <AppLayout header="ESTOQUE DE INSUMOS MISTOS">
             <Head title="Insumos e Extras" />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -119,6 +119,6 @@ export default function Index({ consumables }) {
                 </div>
 
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

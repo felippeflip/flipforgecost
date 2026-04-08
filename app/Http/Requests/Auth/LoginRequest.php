@@ -50,6 +50,14 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        if (Auth::user()->status !== 'active') {
+            Auth::logout();
+            
+            throw ValidationException::withMessages([
+                'email' => 'Sua conta está inativa. Entre em contato com o suporte.',
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 

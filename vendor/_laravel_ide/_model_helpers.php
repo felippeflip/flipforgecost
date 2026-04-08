@@ -1395,7 +1395,17 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property string|null $remember_token
+     * @property string|null $google_id
+     * @property string|null $state
+     * @property string|null $city
+     * @property string|null $neighborhood
+     * @property string|null $complement
+     * @property string|null $number
+     * @property string|null $address
+     * @property string|null $zip_code
      * @property string $password
+     * @property string $role
+     * @property string $status
      * @property \Illuminate\Support\Carbon|null $email_verified_at
      * @property string $email
      * @property string $name
@@ -1406,7 +1416,17 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereName($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereEmail($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereEmailVerifiedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereRole($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User wherePassword($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereZipCode($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereAddress($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereNumber($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereComplement($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereNeighborhood($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereCity($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereState($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereGoogleId($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereRememberToken($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereUpdatedAt($value)

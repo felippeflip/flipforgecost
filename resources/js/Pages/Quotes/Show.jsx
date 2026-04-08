@@ -1,5 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Show({ quote }) {
     const statusColors = {
@@ -19,7 +19,7 @@ export default function Show({ quote }) {
     };
 
     return (
-        <SubNavigationLayout header={`ORÇAMENTO: ${quote.project_name}`}>
+        <AppLayout header={`ORÇAMENTO: ${quote.project_name}`}>
             <Head title={`Orçamento #${quote.formatted_id}`} />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start mt-8">
@@ -140,6 +140,6 @@ export default function Show({ quote }) {
                     </div>
                 </div>
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

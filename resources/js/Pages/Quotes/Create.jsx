@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 import { Head, useForm } from '@inertiajs/react';
 
 export default function Create({ clients, filaments, consumables, settings }) {
@@ -125,16 +125,16 @@ export default function Create({ clients, filaments, consumables, settings }) {
 
     if (!settings) {
         return (
-            <SubNavigationLayout>
+            <AppLayout>
                 <div className="p-4 border border-red-500 bg-red-500/10 text-red-500 font-mono text-sm">
                     ERRO: Parâmetros do sistema não configurados. Acesse as configurações antes de gerar orçamentos.
                 </div>
-            </SubNavigationLayout>
+            </AppLayout>
         );
     }
 
     return (
-        <SubNavigationLayout header="GERADOR DE ORÇAMENTO">
+        <AppLayout header="GERADOR DE ORÇAMENTO">
             <Head title="Gerar Orçamento" />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -410,6 +410,6 @@ export default function Create({ clients, filaments, consumables, settings }) {
                     </div>
                 </div>
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

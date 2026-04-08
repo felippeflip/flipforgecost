@@ -1,5 +1,5 @@
 import { Head, useForm, router } from '@inertiajs/react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 
 export default function Index({ clients }) {
     const { data, setData, post, processing, reset } = useForm({
@@ -23,7 +23,7 @@ export default function Index({ clients }) {
     };
 
     return (
-        <SubNavigationLayout header="BASE DE CLIENTES">
+        <AppLayout header="BASE DE CLIENTES">
             <Head title="Clientes" />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -96,6 +96,6 @@ export default function Index({ clients }) {
                 </div>
 
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }

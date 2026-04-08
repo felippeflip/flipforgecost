@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import SubNavigationLayout from '@/Layouts/SubNavigationLayout';
+import AppLayout from '@/Layouts/AppLayout';
 import { Head, useForm } from '@inertiajs/react';
 
 export default function Edit({ quote, clients, filaments, consumables, settings }) {
@@ -141,16 +141,16 @@ export default function Edit({ quote, clients, filaments, consumables, settings 
 
     if (!settings) {
         return (
-            <SubNavigationLayout>
+            <AppLayout>
                 <div className="p-4 border border-red-500 bg-red-500/10 text-red-500 font-mono text-sm">
                     ERRO: Parâmetros do sistema não configurados.
                 </div>
-            </SubNavigationLayout>
+            </AppLayout>
         );
     }
 
     return (
-        <SubNavigationLayout header={`EDITANDO ORÇAMENTO: #${quote.formatted_id}`}>
+        <AppLayout header={`EDITANDO ORÇAMENTO: #${quote.formatted_id}`}>
             <Head title={`Editar Orçamento - ${quote.formatted_id}`} />
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -431,6 +431,6 @@ export default function Edit({ quote, clients, filaments, consumables, settings 
                     </div>
                 </div>
             </div>
-        </SubNavigationLayout>
+        </AppLayout>
     );
 }
