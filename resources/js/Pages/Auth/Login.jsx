@@ -123,7 +123,7 @@ export default function Login({ status, canResetPassword }) {
                                 </div>
 
                                 <Link
-                                    href="/auth/google/redirect"
+                                    href={route('auth.google')}
                                     className="w-full flex items-center justify-center gap-3 h-12 border-2 border-[#27272a] bg-[#18181b] hover:bg-[#27272a] text-xs font-bold uppercase tracking-widest text-white transition-all group"
                                 >
                                     <svg viewBox="0 0 24 24" className="w-5 h-5 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg">
