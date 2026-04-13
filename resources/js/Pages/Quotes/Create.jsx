@@ -12,6 +12,7 @@ export default function Create({ clients, filaments, consumables, settings }) {
         plates_data: [{ hours: 0, mins: 0, filaments: [{ id: '', weight_g: 0 }] }],
         manual_time_minutes: 0,
         machine_power_w: 300,
+        profit_margin_percent: settings?.profit_margin_percent || 0,
         consumables: []
     });
 
@@ -113,7 +114,7 @@ export default function Create({ clients, filaments, consumables, settings }) {
 
         const base = filCost + machCost + enCost + manCost + consCost;
         const withFailure = base * (1 + (parseFloat(settings.failure_rate_percent || 0) / 100));
-        const final = withFailure * (1 + (parseFloat(settings.profit_margin_percent || 0) / 100));
+        const final = withFailure * (1 + (parseFloat(data.profit_margin_percent || 0) / 100));
 
         return { filCost, machCost, enCost, manCost, consCost, base, withFailure, final };
     }, [data, filaments, consumables, settings]);
@@ -171,7 +172,7 @@ export default function Create({ clients, filaments, consumables, settings }) {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
                                     <div>
                                         <label className="block text-xs font-mono text-zinc-500 mb-1 uppercase">Tipo Venda</label>
                                         <select 
@@ -181,6 +182,13 @@ export default function Create({ clients, filaments, consumables, settings }) {
                                             <option value="direct">Direta</option>
                                             <option value="consignment">Consignação</option>
                                         </select>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-mono text-zinc-500 mb-1 uppercase">Lucro (%)</label>
+                                        <input type="number" 
+                                            className="w-full bg-[#09090b] border border-[#27272a] text-white p-3 rounded-none focus:ring-1 focus:ring-[#CCFF00] focus:border-[#CCFF00] outline-none transition-colors"
+                                            value={data.profit_margin_percent} onChange={e => setData('profit_margin_percent', e.target.value)} required min="0" step="0.1"
+                                        />
                                     </div>
                                     {data.sale_type === 'consignment' && (
                                         <div>

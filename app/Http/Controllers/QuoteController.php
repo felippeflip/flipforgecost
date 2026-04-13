@@ -58,6 +58,7 @@ class QuoteController extends Controller
             'print_time_minutes' => 'required|integer|min:0',
             'manual_time_minutes' => 'required|integer|min:0',
             'machine_power_w' => 'nullable|integer|min:0',
+            'profit_margin_percent' => 'required|numeric|min:0',
             'filaments' => 'required|array|min:1',
             'filaments.*.id' => 'required|exists:filaments,id',
             'filaments.*.weight_g' => 'required|integer|min:1',
@@ -82,7 +83,7 @@ class QuoteController extends Controller
             'snap_energy_cost_kwh' => $settings->energy_cost_kwh,
             'snap_machine_depreciation_hour' => $settings->machine_depreciation_hour,
             'snap_man_hour_cost' => $settings->man_hour_cost,
-            'snap_profit_margin_percent' => $settings->profit_margin_percent,
+            'snap_profit_margin_percent' => $validated['profit_margin_percent'],
             'snap_failure_rate_percent' => $settings->failure_rate_percent,
         ]);
 
@@ -169,6 +170,7 @@ class QuoteController extends Controller
             'print_time_minutes' => 'required|integer|min:0',
             'manual_time_minutes' => 'required|integer|min:0',
             'machine_power_w' => 'nullable|integer|min:0',
+            'profit_margin_percent' => 'required|numeric|min:0',
             'status' => 'required|in:pending,approved,production,completed,rejected',
             'filaments' => 'required|array|min:1',
             'filaments.*.id' => 'required|exists:filaments,id',
@@ -193,7 +195,7 @@ class QuoteController extends Controller
             'snap_energy_cost_kwh' => $settings->energy_cost_kwh,
             'snap_machine_depreciation_hour' => $settings->machine_depreciation_hour,
             'snap_man_hour_cost' => $settings->man_hour_cost,
-            'snap_profit_margin_percent' => $settings->profit_margin_percent,
+            'snap_profit_margin_percent' => $validated['profit_margin_percent'],
             'snap_failure_rate_percent' => $settings->failure_rate_percent,
         ]);
 

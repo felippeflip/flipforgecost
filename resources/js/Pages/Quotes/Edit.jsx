@@ -24,6 +24,7 @@ export default function Edit({ quote, clients, filaments, consumables, settings 
         manual_time_minutes: quote.manual_time_minutes,
         machine_power_w: quote.machine_power_w,
         status: quote.status,
+        profit_margin_percent: quote.snap_profit_margin_percent ?? settings?.profit_margin_percent ?? 0,
         consumables: quote.consumables.map(c => ({ 
             id: c.id, 
             quantity: c.pivot.quantity,
@@ -129,7 +130,7 @@ export default function Edit({ quote, clients, filaments, consumables, settings 
 
         const base = filCost + machCost + enCost + manCost + consCost;
         const withFailure = base * (1 + (parseFloat(settings.failure_rate_percent || 0) / 100));
-        const final = withFailure * (1 + (parseFloat(settings.profit_margin_percent || 0) / 100));
+        const final = withFailure * (1 + (parseFloat(data.profit_margin_percent || 0) / 100));
 
         return { filCost, machCost, enCost, manCost, consCost, base, withFailure, final };
     }, [data, filaments, consumables, settings]);
@@ -205,6 +206,13 @@ export default function Edit({ quote, clients, filaments, consumables, settings 
                                         <option value="direct">Direta</option>
                                         <option value="consignment">Consignação</option>
                                     </select>
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-mono text-zinc-500 mb-1 uppercase">Lucro (%)</label>
+                                    <input type="number" 
+                                        className="w-full bg-[#09090b] border border-[#27272a] text-white p-3 rounded-none focus:ring-1 focus:ring-[#CCFF00] focus:border-[#CCFF00] outline-none transition-colors"
+                                        value={data.profit_margin_percent} onChange={e => setData('profit_margin_percent', e.target.value)} required min="0" step="0.1"
+                                    />
                                 </div>
                                 {data.sale_type === 'consignment' && (
                                     <div>
