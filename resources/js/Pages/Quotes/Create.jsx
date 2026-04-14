@@ -307,7 +307,6 @@ export default function Create({ clients, filaments, consumables, settings }) {
                                         />
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
                         {/* Block: Insumos Adicionais */}

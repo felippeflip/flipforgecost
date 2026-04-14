@@ -1,1 +1,0 @@
-import{j as r}from"./app-DLdHq4l1.js";function a({value:t,className:e="",children:s,...n}){return r.jsx("label",{...n,className:"block text-xs font-bold uppercase tracking-widest text-zinc-500 "+e,children:t||s})}export{a as I};

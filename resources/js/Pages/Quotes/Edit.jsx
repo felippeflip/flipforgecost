@@ -329,7 +329,6 @@ export default function Edit({ quote, clients, filaments, consumables, settings 
                                         />
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
                         {/* Block: Insumos Adicionais */}
