@@ -212,15 +212,23 @@ export default function Create({ clients, filaments, consumables, settings }) {
                                 </button>
                             </div>
                             
-                            <div className="space-y-6">
-                                {data.plates_data.map((p, pIdx) => (
-                                    <div key={pIdx} className="bg-[#09090b] p-4 border border-[#27272a]">
-                                        <div className="flex justify-between items-center mb-3 border-b border-zinc-800 pb-2">
-                                            <h3 className="text-xs font-mono font-bold text-white uppercase tracking-widest">Prato {pIdx + 1}</h3>
-                                            {data.plates_data.length > 1 && (
-                                                <button type="button" onClick={() => removePlate(pIdx)} className="text-[10px] text-red-500 hover:text-red-400 uppercase">Remover Prato</button>
-                                            )}
-                                        </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
+                                {data.plates_data.map((p, pIdx) => {
+                                    const plateTheme = [
+                                        { border: 'border-[#CCFF00]/40', bg: 'bg-[#CCFF00]/5', badge: 'text-[#CCFF00]' },
+                                        { border: 'border-[#00f2fe]/40', bg: 'bg-[#00f2fe]/5', badge: 'text-[#00f2fe]' },
+                                        { border: 'border-[#ff3366]/40', bg: 'bg-[#ff3366]/5', badge: 'text-[#ff3366]' },
+                                        { border: 'border-[#ff9900]/40', bg: 'bg-[#ff9900]/5', badge: 'text-[#ff9900]' }
+                                    ][pIdx % 4];
+
+                                    return (
+                                        <div key={pIdx} className={`p-4 border flex flex-col h-full ${plateTheme.bg} ${plateTheme.border} transition-colors`}>
+                                            <div className="flex justify-between items-center mb-3 border-b border-zinc-800 pb-2">
+                                                <h3 className={`text-xs font-mono font-bold uppercase tracking-widest ${plateTheme.badge}`}>Prato {pIdx + 1}</h3>
+                                                {data.plates_data.length > 1 && (
+                                                    <button type="button" onClick={() => removePlate(pIdx)} className="text-[10px] text-red-500 hover:text-red-400 uppercase">Remover Prato</button>
+                                                )}
+                                            </div>
 
                                         <div className="flex gap-4 items-end mb-4">
                                             <div className="flex-1">
@@ -279,10 +287,12 @@ export default function Create({ clients, filaments, consumables, settings }) {
                                             </div>
                                         </div>
                                     </div>
-                                ))}
+                                    );
+                                })}
+                            </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#27272a]">
-                                    <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#27272a]">
+                                <div>
                                         <label className="block text-xs font-mono text-zinc-500 mb-1 uppercase">Potência da Máquina (W) [Fixo p/ Todos]</label>
                                         <input type="number" 
                                             className="w-full bg-[#09090b] border border-[#27272a] text-white p-3 rounded-none focus:ring-[#CCFF00] focus:border-[#CCFF00]"
